@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{% block body %}
+
+<!--
+<div>
+    <a href="/pages/graphs/update">Подгрузить новые графики</a>
+</div>
+-->
+
+<div class="pt-5 grid grid-cols-2 w-[1500px] gap-[10px] mx-auto justify-between">
+    <div class="sm_graph">
+        <div class="ml-[15px]">
+            {% include 'graphs/graph1.html'%}
+        </div>
+        <p class="text-md text-black font-medium text-center"> Данные Температуры</p>
+    </div>
+    <div class="sm_graph">
+        <div class="ml-[15px]">
+            {% include 'graphs/graph2.html'%}
+        </div>
+        <p class="text-md text-black font-medium text-center"> Данные Давления</p>
+    </div>
+    <div class="sm_graph">
+        <div class="ml-[15px]">
+            {% include 'graphs/graph3.html'%}
+        </div>
+        <p class="text-md text-black font-medium text-center"> Данные скорости вращения</p>
+    </div>
+    <div class="sm_graph">
+        <div class="ml-[15px]">
+            {% include 'graphs/graph4.html'%}
+        </div>
+        <p class="text-md text-black font-medium text-center"> Данные потоков жидкости</p>
+    </div>
+    <div class="bg_graph col-span-2 mx-auto">
+        <div class="ml-[15px]">
+            {% include 'graphs/graph5.html'%}
+        </div>
+        <p class="text-md text-black font-medium text-center"> Корреляционная матрица</p>
+    </div>
+</div>
+
+{% endblock %}
+
+

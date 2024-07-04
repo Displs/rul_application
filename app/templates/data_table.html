@@ -1,0 +1,28 @@
+{%extends "data.html"%}
+{% block data_table %}
+
+<tbody>
+    {% for row_num in index_query %}
+    <tr class="bg-white border-b hover:bg-gray-200">
+        <td class="data_det">{{ temp_query['T2_Total_temperature_at_fan_inlet_(°R)'].get(row_num) }}</td>
+        <td class="data_det">{{ temp_query['T24_Total_temperature_at_LPC_outlet_(°R)'].get(row_num) }}</td>
+        <td class="data_det">{{ temp_query['T30_Total_temperature_at_HPC_outlet_(°R)'].get(row_num) }}</td>
+        <td class="data_det">{{ temp_query['T50_Total_temperature_at_LPT_outlet_(°R)'].get(row_num) }}</td>
+
+        <td class="data_det">{{ pres_query['P2_Pressure_at_fan_inlet_(psia)'].get(row_num) }}</td>
+        <td class="data_det">{{ pres_query['P15_Total_pressure_in_bypass-duct_(psia)'].get(row_num) }}</td>
+        <td class="data_det">{{ pres_query['Ps30_Static_pressure_at_HPC_outlet_(psia)'].get(row_num) }}</td>
+
+        <td class="data_det">{{ rpm_query['Nf_Physical_fan_speed_(rpm)'].get(row_num) }}</td>
+        <td class="data_det">{{ rpm_query['Nc_Physical_core_speed_(rpm)'].get(row_num) }}</td>
+        <td class="data_det">{{ rpm_query['NRf_Corrected_fan_speed_(rpm)'].get(row_num) }}</td>
+        <td class="data_det">{{ rpm_query['NRc_Corrected_core_speed_(rpm)'].get(row_num) }}</td>
+
+        <td class="data_det">{{ flow_query['W31_HPT_coolant_bleed_(lbm/s)'].get(row_num) }}</td>
+        <td class="data_det">{{ flow_query['W32_LPT_coolant_bleed_(lbm/s)'].get(row_num) }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+{% endblock %}
+

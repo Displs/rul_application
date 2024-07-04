@@ -1,0 +1,60 @@
+{%extends "base.html"%}
+{% block body %}
+
+<div class="max-w-[1500px] justify-center mx-auto">
+    <div class="mt-5 h-[400px] rounded-lg border border-stone-100 shadow-md">
+        <div class="mx-20 font-sans">
+            <label class="mb-2 mt-5 block text-base font-semibold text-gray-500">Загрузить файл данных</label>
+            <form action="/documents/upload" method="post" enctype="multipart/form-data">
+                <input type="file" id="upload_file" name="upload_file"
+                    class="w-full cursor-pointer rounded-lg border bg-white text-sm font-semibold text-gray-400 file:mr-4 file:cursor-pointer file:border-0 file:bg-gray-100 file:px-4 file:py-3 file:text-gray-500 file:hover:bg-gray-200" />
+                <p class="mt-1 text-xs text-gray-400">.pdf формат</p>
+                <div>
+                    <label class="block text-base mt-5 mb-2 font-semibold text-gray-500">Укажите производителя</label>
+                    <input type="text" id="manufacturer" name="man"
+                        class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                        placeholder="Производитель" required />
+                </div>
+                <div>
+                    <label class="block text-base mt-5 mb-2 font-semibold text-gray-500">Укажите модель
+                        двигателя</label>
+                    <input type="text" id="model" name="mod"
+                        class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                        placeholder="Модель" required />
+                </div>
+                <button type="submit"
+                    class="mt-7 w-40 h-10 rounded-md border bg-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-300">
+                    Загрузить данные</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-5 h-auto w-auto rounded-lg border border-stone-100 shadow-md pb-4 pt-5">
+        <div class="mx-20 flex">
+            <div>
+                <a href="/pages/docs/get-all"
+                    class="mb-2 mr-14 block h-10 w-40 rounded-md border bg-gray-200 py-2 text-center text-sm font-semibold text-gray-800 hover:bg-gray-300">Отобразить
+                    документы</a>
+            </div>
+            <div class="relative mx-0 max-w-3xl overflow-x-auto rounded-lg">
+                <table class="w-full text-left text-sm text-gray-500 rtl:text-right">
+                    <thead class="bg-gray-100 text-xs uppercase text-gray-700">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">id</th>
+                            <th scope="col" class="px-6 py-3">Производитель</th>
+                            <th scope="col" class="px-6 py-3">Модель</th>
+                            <th scope="col" class="px-6 py-3">
+                                <span class="sr-only">Ссылка</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    {% block doc_table %}
+                    {% endblock %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
